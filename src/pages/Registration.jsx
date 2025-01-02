@@ -269,7 +269,7 @@ const Registration = () => {
       {waiting && (
         <div className="waiting-section" id="waiting-section">
           <div className="loader">
-            <img src="/src/images/loading.png" alt="Description of image" />
+            <img src="../../images/loading.png" alt="Description of image" />
           </div>
           <p>Please wait...</p>
         </div>

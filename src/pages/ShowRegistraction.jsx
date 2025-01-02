@@ -41,7 +41,7 @@ const ShowRegistraction = () => {
         </div>
       </div>
       <div className="refresh container">
-        <span onClick={() => window.location.reload()}>Refresh <img className={`refresh-icon ${isFetching ? "rotate" : ""}`} src="src/images/refresh-1.png" alt="" /></span>
+        <span onClick={() => window.location.reload()}>Refresh <img className={`refresh-icon ${isFetching ? "rotate" : ""}`} src="../../images/refresh-1.png" alt="" /></span>
       </div>
       <div className="data-show container">
         <table id="table">

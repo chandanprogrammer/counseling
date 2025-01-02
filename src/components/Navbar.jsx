@@ -18,7 +18,7 @@ const Navbar = () => {
           <nav>
             <div className="hamburger" onClick={toggleMenu}>
               <img
-                src="/src/images/hamburge_b.png"
+                src="../../images/hamburge_b.png"
                 alt="Menu"
                 className="hamburge-icon"
               />
