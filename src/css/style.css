@@ -136,6 +136,7 @@ nav ul li:hover {
     padding: 10px;
     height: 98vh;
     margin-top: 4.5rem;
+    z-index: 99;
   }
 
   .nav-links.open {
