@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ShowRegistraction = () => {
+const ShowList = () => {
   const [data, setData] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const URL =
@@ -75,4 +75,4 @@ const ShowRegistraction = () => {
   );
 };
 
-export default ShowRegistraction;
+export default ShowList;

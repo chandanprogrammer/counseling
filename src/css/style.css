@@ -24,6 +24,10 @@ li {
   padding-left: 4rem;
   padding-right: 4rem;
 }
+.flex-center{
+  display: flex;
+  align-items: center;
+}
 header {
   width: 100%;
   background-color: #fff;
@@ -33,16 +37,21 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 4rem;
-  /* background-color: red; */
+  padding: 0.3rem 4rem;
   position: relative;
 }
-.header .logo {
-  font-size: 20px;
-  font-weight: 600;
+.header .logo img{
+  width: 60px;
 }
 .header .logo a {
-  color: rgb(90, 13, 168);
+  color: #a5420c;
+  display: flex;
+  align-items: center;
+}
+.header .logo p{
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 1rem;
 }
 nav {
   display: flex;
@@ -52,37 +61,37 @@ nav ul {
   flex-direction: row;
 }
 nav ul li {
-  margin-right: 1.6rem;
+  margin-right: 1.2rem;
   font-weight: 500;
   padding: 8px 12px;
+  border-radius: 4px;
 }
 nav ul li:hover {
   font-weight: 600;
   background: #cdcdcd76;
-  border-radius: 4px;
   transition: all 0.5s ease;
 }
-.login {
+.login-btn {
   background: #1072cd;
   border: none;
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 4px;
 }
-.login a {
+.login-btn a {
   color: #fff;
   letter-spacing: 1px;
 }
-.login:hover {
+.login-btn:hover {
   background: #0d5f9b;
   transition: all 0s ease;
 }
-.btn-link a {
+/* .btn-link a {
   color: #fff;
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: 600;
-}
+} */
 .hamburge-icon {
   width: 30px;
   height: 30px;
@@ -95,30 +104,16 @@ nav ul li:hover {
 .nav-links {
   display: flex;
   gap: 15px;
-  list-style: none;
 }
 
-.nav-links li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1em;
-}
-
-/* Mobile Responsive */
+/* -------- Mobile Responsive -------- */
 
 @media screen and (max-width: 600px) {
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
   }
-  .header .logo {
-    font-size: 18px;
-  }
-  nav ul {
-    display: none;
-    flex-direction: column;
-  }
-  .login {
+  .login-btn {
     display: none;
   }
   .hamburger {
@@ -132,7 +127,7 @@ nav ul li:hover {
     left: 0;
     background-color: #fff;
     border: 1px solid #ddd;
-    width: 250px;
+    width: 270px;
     padding: 10px;
     height: 98vh;
     margin-top: 4.5rem;
@@ -149,5 +144,13 @@ nav ul li:hover {
 
   .nav-links li:last-child {
     margin-bottom: 0;
+  }
+}
+
+/* ---------- Big screen Responsive ---------- */
+@media screen and (min-width: 1800px) {
+  .container {
+    padding-left: 15rem;
+    padding-right: 15rem;
   }
 }

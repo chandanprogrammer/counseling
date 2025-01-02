@@ -2,8 +2,9 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>
-      Home
+    <div className='container' style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', width: '100vw',}}  >
+      <div style={{fontSize: '2rem',}}> Home Page
+      </div>
     </div>
   )
 }

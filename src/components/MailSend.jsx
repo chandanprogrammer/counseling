@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Dasboard = () => {
+const MailSend = () => {
+    
   return (
     <div>
       
@@ -8,4 +9,4 @@ const Dasboard = () => {
   )
 }
 
-export default Dasboard
+export default MailSend
