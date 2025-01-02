@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", serif;
+  background-color: #f1f1f1;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  width: 100vw;
+}
+a {
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+.container {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 4rem;
+  /* background-color: red; */
+  position: relative;
+}
+.header .logo {
+  font-size: 20px;
+  font-weight: 600;
+}
+.header .logo a {
+  color: rgb(90, 13, 168);
+}
+nav {
+  display: flex;
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+}
+nav ul li {
+  margin-right: 1.6rem;
+  font-weight: 500;
+  padding: 8px 12px;
+}
+nav ul li:hover {
+  font-weight: 600;
+  background: #cdcdcd76;
+  border-radius: 4px;
+  transition: all 0.5s ease;
+}
+.login {
+  background: #1072cd;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.login a {
+  color: #fff;
+  letter-spacing: 1px;
+}
+.login:hover {
+  background: #0d5f9b;
+  transition: all 0s ease;
+}
+.btn-link a {
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.hamburge-icon {
+  width: 30px;
+  height: 30px;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1em;
+}
+
+/* Mobile Responsive */
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .header .logo {
+    font-size: 18px;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+  }
+  .login {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 250px;
+    padding: 10px;
+    height: 98vh;
+    margin-top: 4.5rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  .nav-links li:last-child {
+    margin-bottom: 0;
+  }
+}
