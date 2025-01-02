@@ -12,7 +12,7 @@ const Success = () => {
         </p>
 
         <button class="button is-primary btn-link">
-          <Link to="/show-registration">Show Regestration</Link>
+          <Link to="/show-list">Registered students List Show </Link>
         </button>
       </div>
     </>

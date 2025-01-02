@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const URL_POST_DATA =
+  "https://script.google.com/macros/s/AKfycbysfwC4h4ztvUUnkTjVdLFOvptGEMAKZyctYsuEk2QcBxsMrmL9_O3jHnnrtI7NJ33z/exec";
 
 const Registration = () => {
   const [waiting, setWaiting] = useState(false);
@@ -54,8 +56,7 @@ const Registration = () => {
         data: formDataString,
       };
 
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxPVZdMohRRYEzKHL-eByxnKgEcSetthJGC5pyy-LmxT9wjdIyKcBTRZVf6MTMSLmyg9g/exec",
+      const response = await fetch(URL_POST_DATA,
         {
           method: "POST",
           mode: "no-cors",

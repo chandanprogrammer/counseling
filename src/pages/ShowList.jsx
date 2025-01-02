@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
+const URL_POST_DATA = "https://script.google.com/macros/s/AKfycbyoDilHTM236kcDwvSOPRHeGXDkxKFGCZ4DH-iEwc6g0QoLI0Lsfkpso27sxPJKImGA/exec";
 
 const ShowList = () => {
   const [data, setData] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
-  const URL =
-    "https://script.google.com/macros/s/AKfycbyry6bEaKG0SXghh9Gi2mZYy9oXIjJ_SSzLhSc38YmMqMUpFYKb7axBSBrNx5OUfbpIbA/exec";
 
   useEffect(() => {
     const fetchData = async () => {
       setIsFetching(true);
       try {
-        const response = await fetch(URL);
+        const response = await fetch(URL_POST_DATA);
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }
