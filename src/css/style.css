@@ -11,6 +11,8 @@ body {
   font-size: 16px;
   letter-spacing: 0.8px;
   width: 100vw;
+  overflow-x: hidden;
+  
 }
 a {
   text-decoration: none;
