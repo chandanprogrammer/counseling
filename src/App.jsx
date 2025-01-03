@@ -4,6 +4,7 @@ import "./css/registration.css"
 import "./css/showlist.css"
 import "./css/dashboard.css"
 import "./css/error.css"
+import "./css/login.css"
 import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import ShowList from "./pages/ShowList";
