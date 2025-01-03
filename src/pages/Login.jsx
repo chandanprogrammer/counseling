@@ -35,7 +35,7 @@ const Login = () => {
     console.log(email, password);
     
 
-    if (email === "admin" && password === "admin") {
+    if (email === "9060485888" && password === "9060485888") {
       // console.log("Success");
       navigate("/dashboard");
     } else {

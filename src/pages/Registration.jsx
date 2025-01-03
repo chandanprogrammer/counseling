@@ -92,79 +92,79 @@ const Registration = () => {
       <div className=" form-section">
         <form id="form" className="container form" onSubmit={handleFormSubmit}>
           <div className="field">
-            <label className="label">Applicant Name</label>
+            <label className="label">Applicant Name <span className="required">*</span></label>
             <div className="control">
               <input
                 className="input"
                 type="text"
                 placeholder="Enter Name"
                 name="Name"
-                // required
+                required
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">Father's Name</label>
+            <label className="label">Father's Name <span className="required">*</span></label>
             <div className="control">
               <input
                 className="input"
                 type="text"
                 placeholder="Enter Father's Name"
                 name="Father Name"
-                // required
+                required
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">Mother's Name</label>
+            <label className="label">Mother's Name <span className="required">*</span></label>
             <div className="control">
               <input
                 className="input"
                 type="text"
                 placeholder="Enter Mother's Name"
                 name="Mother Name"
-                // required
+                required
               />
             </div>
           </div>
 
           <div className="field">
-            <label className="label">Email ID</label>
+            <label className="label">Email ID <span className="required">*</span></label>
             <div className="control">
               <input
                 className="input"
                 type="email"
                 placeholder="example@gmail.com"
                 name="Email"
-                // required
+                required
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">Date of Birth</label>
+            <label className="label">Date of Birth <span className="required">*</span></label>
             <div className="control half-width">
               <input
                 className="input"
                 type="date"
                 placeholder="Your Date of Birth"
                 name="DOB"
-                // required
+                required
               />
             </div>
           </div>
 
           <div className="field">
-            <label className="label">Gender</label>
+            <label className="label">Gender <span className="required">*</span></label>
             <div className="control gender">
               <label className="radio">
-                <input type="radio" name="Gender" value="male" /*required */ />{" "}
+                <input type="radio" name="Gender" value="Male" required />{" "}
                 Male
               </label>
               <label className="radio">
                 <input
                   type="radio"
                   name="Gender"
-                  value="female" /*required */
+                  value="Female" required 
                 />{" "}
                 Female
               </label>
@@ -182,56 +182,56 @@ const Registration = () => {
             </div>
           </div>
           <div className="field">
-            <label className="label">Phone Number</label>
+            <label className="label">Phone Number <span className="required">*</span></label>
             <div className="control">
               <input
                 className="input"
                 type="number"
                 placeholder="+91 xxxxxxxxxx"
                 name="Phone Number"
-                // required
+                required
               />
             </div>
           </div>
 
           <div className="field">
-            <label className="label">Form Number</label>
+            <label className="label">Form Number <span className="required">*</span></label>
             <div className="control">
               <input
                 className="input"
                 type="text"
                 placeholder="GGV/2025/xxxx"
                 name="Form Number"
-                // required
+                required
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">CUET Application Number</label>
+            <label className="label">CUET Application Number <span className="required">*</span></label>
             <div className="control">
               <input
                 className="input"
                 type="text"
                 placeholder="xxxxxxxxxxx"
                 name="CUET Application No"
-                // required
+                required
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">CUET Marks</label>
+            <label className="label">CUET Marks <span className="required">*</span></label>
             <div className="control">
               <input
                 className="input"
                 type="number"
                 placeholder="Enter CUET Marks"
                 name="CUET Marks"
-                // required
+                required
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">10th Marksheet</label>
+            <label className="label">10th Marksheet <span className="required">*</span></label>
             <div className="control half-width file">
               <input
                 className="input"
@@ -239,12 +239,12 @@ const Registration = () => {
                 accept=".png, .jpg, .jpeg, .pdf"
                 name="marksheet-10th"
                 id="marksheet-10th"
-                // required
+                required
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">12th Marksheet</label>
+            <label className="label">12th Marksheet <span className="required">*</span></label>
             <div className="control half-width file">
               <input
                 className="input"
@@ -252,7 +252,7 @@ const Registration = () => {
                 accept=".png, .jpg, .jpeg, .pdf"
                 name="marksheet-12th"
                 id="marksheet-12th"
-                // required
+                required
               />
             </div>
           </div>
@@ -261,9 +261,6 @@ const Registration = () => {
             <button className="button is-primary" type="submit">
               Submit
             </button>
-            {/* <button className="button is-danger" type="button">
-              Cancel
-            </button> */}
           </div>
         </form>
       </div>

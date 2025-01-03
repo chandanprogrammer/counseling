@@ -48,6 +48,9 @@
   outline: none;
   border: 1px solid #083ccb;
 }
+.required{
+    color: #f96e6e;
+}
 .half-width {
   width: 50%;
 }
