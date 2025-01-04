@@ -1,27 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let getLoginDetailsLS = localStorage.getItem("counselingLoginDetails");
+
+    if (getLoginDetailsLS != null) {
+      console.log("Dashboard login success...");
+    } else {
+      console.log("Please login first");
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <>
       <div className="dashboard container">
-        <div className="dashboard-sidebar">
-          <div className="dashboard-sidebar-heading">
-            <img className="home-icon icon" src="../../images/home_1.png" alt="" />
-            Dashboard
-          </div>
-          <ul>
-            <li>
-            <img className="graduates-icon icon" src="../../images/group.png" alt="" />
-              <Link to="/all-students">All Students List</Link>
-            </li>
-            <li>
-            <img className="graduates-icon icon" src="../../images/email.png" alt="" />
-              <Link to="/all-students">Send Email</Link>
-            </li>
-          </ul>
+        <Sidebar />
+        <div className="dashboard-content">
+          Main dashboard content
         </div>
-        <div className="dashboard-content">Content display here....</div>
       </div>
     </>
   );

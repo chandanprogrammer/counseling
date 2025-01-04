@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./css/style.css"
+import "./css/home.css"
 import "./css/registration.css"
 import "./css/showlist.css"
 import "./css/dashboard.css"
@@ -15,6 +16,7 @@ import Error404 from "./pages/Error404";
 import Success from "./pages/Success";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
+import AllStudentsList from "./pages/AllStudentsList";
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/success" element={<Success />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/all-students-list" element={<AllStudentsList />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       {/* <Footer /> */}

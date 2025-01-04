@@ -1,7 +1,7 @@
 .login-heading {
   font-size: 2rem;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-weight: 600;
   letter-spacing: 2px;
 }
@@ -11,9 +11,9 @@
   justify-content: center;
 }
 .login-form {
-  width: 30%;
+  width: 28%;
   background-color: #fff;
-  padding: 4rem 3rem;
+  padding: 3rem 2rem;
   border-radius: 5px;
   margin: 0 auto;
   box-shadow: 1px 1px 30px #6d6d6d;
@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 1.3rem;
+  position: relative;
 }
 .form-group label {
   font-weight: 500;
@@ -30,7 +31,8 @@
   letter-spacing: 0.6px;
 }
 .form-group input {
-  padding: 0.5rem;
+  padding: 0.8rem;
+  padding-left: 2.2rem;
   border: 1px solid #b4b4b4;
   border-radius: 5px;
   font-size: 16px;
@@ -41,11 +43,29 @@
   outline: none;
   border: 1px solid #083ccb;
 }
+.form-group .email-icon, .padlock-icon {
+  position: absolute;
+  top: 48px;
+  left: 10px;
+  font-size: 20px;
+  width: 15px;
+  height: 15px;
+}
+.padlock-icon{
+  top: 45px;
+}
+.form-group .pass-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: #b4b4b4;
+}
 #submit-login {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.8rem;
   margin-top: 1rem;
-  background-color: #0e83d7;
+  background-color: #0da161;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -54,7 +74,7 @@
   letter-spacing: 1.5px;
 }
 #submit-login:hover {
-  background-color: #02538c;
+  background-color: #047947;
   transition: all 0.5s ease;
 }
 
@@ -63,5 +83,14 @@
 @media screen and (max-width: 600px) {
     .login-form {
         width: 80%;
+      }
+      .login-form {
+        width: 100%;
+        background-color: #fff;
+        padding: 3rem 2rem;
+        border-radius: 5px;
+        margin: 0 auto;
+        box-shadow: 1px 1px 30px #6d6d6d;
+        border-radius: 6px;
       }
   }

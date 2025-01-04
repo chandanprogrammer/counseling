@@ -10,6 +10,16 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Login details access from local storage
+    let getLoginDetailsLS = localStorage.getItem("counselingLoginDetails");
+
+    if (getLoginDetailsLS != null) {
+      if (getLoginDetailsLS.length >= 1) {
+        navigate("/dashboard");
+        return;
+      }
+    }
+
     const fetchData = async () => {
       try {
         const response = await fetch(URL_POST_DATA);
@@ -54,11 +64,24 @@ const Login = () => {
 
     for (let i = 1; i < data.length; i++) {
       if (data[i].email === emailValue && data[i].password === passwordValue) {
+        //  Save login details in Local storage
+        let setLoginDetailsLS = [
+          {
+            email: emailValue,
+            password: passwordValue,
+            // valideDay: "2025-01-08",
+          },
+        ];
+        localStorage.setItem(
+          "counselingLoginDetails",
+          JSON.stringify(setLoginDetailsLS)
+        );
+
         navigate("/dashboard");
         return;
       }
     }
-    alert("Invalid Username or Email or Password");
+    alert("Invalid Email or Password! Try Again");
     email.value = "";
     password.value = "";
   };
@@ -72,6 +95,7 @@ const Login = () => {
         <form className="login-form" onSubmit={passwordCheck}>
           <div className="form-group">
             <label htmlFor="email">Email </label>
+            <img className=" email-icon" src="../../images/email.png" alt="" />
             <input
               type="email"
               id="email"
@@ -82,6 +106,11 @@ const Login = () => {
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
+            <img
+              className=" padlock-icon"
+              src="../../images/padlock.png"
+              alt=""
+            />
             <input
               type="password"
               id="password"

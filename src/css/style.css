@@ -30,6 +30,11 @@ li {
   display: flex;
   align-items: center;
 }
+.icon{
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+}
 header {
   width: 100%;
   background-color: #fff;
@@ -63,30 +68,37 @@ nav ul {
   flex-direction: row;
 }
 nav ul li {
-  margin-right: 1.2rem;
+  margin-right: 0;
   font-weight: 500;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border-radius: 4px;
 }
 nav ul li:hover {
   font-weight: 600;
   background: #cdcdcd76;
   transition: all 0.5s ease;
+
 }
-.login-btn {
+.login-btn, .logout-btn {
   background: #1072cd;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 16px;
   font-size: 16px;
   border-radius: 4px;
+  letter-spacing: 1px;
+  color: #fff;
 }
-.login-btn a {
+.login-btn a{
   color: #fff;
   letter-spacing: 1px;
 }
-.login-btn:hover {
+.login-btn:hover, .logout-btn:hover {
   background: #0d5f9b;
   transition: all 0s ease;
+}
+.logout-btn{
+  cursor: pointer;
+  /* display: none; */
 }
 /* success page style  */
 .btn-link a {
@@ -116,8 +128,10 @@ nav ul li:hover {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
   }
-  .login-btn {
-    display: none;
+  .login-btn, .logout-btn {
+    width: 40%;
+    margin-left: 1.5rem;
+    margin-top: 0.8rem;
   }
   .hamburger {
     display: block;
