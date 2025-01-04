@@ -48,7 +48,7 @@ const ShowList = () => {
             <tr>
               <th className="srno">S.No.</th>
               <th>Name</th>
-              <th>Father's Name</th>
+              <th>Father Name</th>
               <th>Gender</th>
               <th>Category</th>
               <th>Form Number</th>
