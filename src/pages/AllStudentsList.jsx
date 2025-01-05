@@ -4,8 +4,22 @@ const URL_POST_DATA =
   "https://script.google.com/macros/s/AKfycbyoDilHTM236kcDwvSOPRHeGXDkxKFGCZ4DH-iEwc6g0QoLI0Lsfkpso27sxPJKImGA/exec";
 
 const AllStudentsList = () => {
-  const [data, setData] = useState([]);
+  const [originalData, setOriginalData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
+
+  const selectedCategory = (e) => {
+    const category = e.target.value;
+    if (category === "All") {
+      setFilteredData(originalData);
+    } else {
+      const filtered = originalData.filter(
+        (item) => item.category === category
+      );
+      console.log(filtered);
+      setFilteredData(filtered);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +30,9 @@ const AllStudentsList = () => {
           throw new Error("Network response was not ok " + response.statusText);
         }
         const result = await response.json();
-        setData(result.data);
+        
+        setOriginalData(result.data.slice(1));
+        setFilteredData(result.data.slice(1));
       } catch (error) {
         console.error(
           "There has been a problem with your fetch operation:",
@@ -36,18 +52,26 @@ const AllStudentsList = () => {
       <div className="dashboard-content">
         <div className="fixed-filter-section">
           <div className="filter-section">
-            <img className="icon" src="../../images/filter_1.png" alt="" />
-            <p>Filter</p>{" "}
+            <img
+              className="icon"
+              src="/images/filter_1.png"
+              alt="Filter Icon"
+            />
+            <p>Filter</p>
           </div>
           <div>
             <div className="category-filter">
               <label htmlFor="category">Category:</label>
-              <select name="category" id="category" className="category-select">
-                <option value="all">All</option>
-                <option value="general">General</option>
-                <option value="obc">OBC</option>
-                <option value="sc">SC</option>
-                <option value="st">ST</option>
+              <select
+                name="category"
+                id="category-select"
+                onChange={selectedCategory}
+              >
+                <option value="All">All</option>
+                <option value="General">General</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
               </select>
             </div>
           </div>
@@ -83,7 +107,7 @@ const AllStudentsList = () => {
               </tr>
             </thead>
             <tbody id="table-body">
-              {data.slice(1).map((row, index) => (
+              {filteredData.map((row, index) => (
                 <tr key={index}>
                   <td className="srno">{index + 1}</td>
                   <td>{row.name}</td>
@@ -104,7 +128,7 @@ const AllStudentsList = () => {
                         "https://drive.google.com/file/d/" +
                         row.marksheet10th
                           .split("uc?id=")[1]
-                          .split("&export")[0] +
+                          ?.split("&export")[0] +
                         "/preview"
                       }
                       target="_blank"
@@ -112,9 +136,9 @@ const AllStudentsList = () => {
                       <img
                         className="eye-icon"
                         src="../../images/eye.png"
-                        alt=""
+                        alt="View 10th Marksheet"
                       />
-                      <p>view</p>
+                      <p>View</p>
                     </a>
                   </td>
                   <td>
@@ -124,7 +148,7 @@ const AllStudentsList = () => {
                         "https://drive.google.com/file/d/" +
                         row.marksheet12th
                           .split("uc?id=")[1]
-                          .split("&export")[0] +
+                          ?.split("&export")[0] +
                         "/preview"
                       }
                       target="_blank"
@@ -132,15 +156,23 @@ const AllStudentsList = () => {
                       <img
                         className="eye-icon"
                         src="../../images/eye.png"
-                        alt=""
+                        alt="View 12th Marksheet"
                       />
-                      view
+                      <p>View</p>
                     </a>
                   </td>
+
                   <td>{row.timestamp.split("T")[0]}</td>
                 </tr>
               ))}
             </tbody>
+            {filteredData.length === 0 && (
+              <tr>
+                <td colSpan="15" className="no-data-found">
+                  No Data Found
+                </td>
+              </tr>
+            )}
           </table>
         </div>
       </div>
