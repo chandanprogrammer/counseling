@@ -175,9 +175,11 @@ const Registration = () => {
             <div className="control">
               <select name="Category" id="category">
                 <option value="General">General</option>
+                <option value="EWS">EWS</option>
                 <option value="OBC">OBC</option>
                 <option value="SC">SC</option>
                 <option value="ST">ST</option>
+                <option value="Pwd">Pwd</option>
               </select>
             </div>
           </div>

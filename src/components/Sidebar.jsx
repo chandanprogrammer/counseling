@@ -19,7 +19,7 @@ const Sidebar = () => {
     <ul>
       <li>
         <img
-          className="graduates-icon icon"
+          className=" icon"
           src="../../images/group.png"
           alt=""
         />
@@ -27,12 +27,21 @@ const Sidebar = () => {
       </li>
       <li>
         <img
-          className="graduates-icon icon"
-          src="../../images/email.png"
+          className=" icon"
+          src="../../images/check.png"
           alt=""
         />
-        <Link to="/all-students">Send Email</Link>
+        <Link to="/dashboard/selection"> Selection</Link>
       </li>
+      <li>
+        <img
+          className=" icon"
+          src="../../images/selected_list.png"
+          alt=""
+        />
+        <Link to="/dashboard/students-selection">Registrated Students</Link>
+      </li>
+      
     </ul>
   </div>
   )
