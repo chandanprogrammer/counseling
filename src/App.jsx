@@ -6,6 +6,7 @@ import "./css/showlist.css"
 import "./css/dashboard.css"
 import "./css/error.css"
 import "./css/login.css"
+import "./css/sendmail.css"
 import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import ShowList from "./pages/ShowList";
@@ -18,6 +19,7 @@ import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
 import AllStudentsList from "./pages/AllStudentsList";
 import Selection from "./pages/Selection";
+import SendMail from "./pages/sendMail";
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/all-students-list" element={<AllStudentsList />} />
         <Route path="/dashboard/selection" element={<Selection />} />
+        <Route path="/dashboard/send-mail" element={<SendMail />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       {/* <Footer /> */}

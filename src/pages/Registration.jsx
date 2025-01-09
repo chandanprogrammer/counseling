@@ -92,7 +92,7 @@ const Registration = () => {
       <div className=" form-section">
         <form id="form" className="container form" onSubmit={handleFormSubmit}>
           <div className="field">
-            <label className="label">Applicant Name <span className="required">*</span></label>
+            <label className="label">Applicant Name <span className="required" >*</span></label>
             <div className="control">
               <input
                 className="input"

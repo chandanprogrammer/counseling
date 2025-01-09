@@ -41,6 +41,14 @@ const Sidebar = () => {
         />
         <Link to="/dashboard/students-selection">Registrated Students</Link>
       </li>
+      <li>
+        <img
+          className=" icon"
+          src="../../images/email.png"
+          alt=""
+        />
+        <Link to="/dashboard/send-mail">Send Mail</Link>
+      </li>
       
     </ul>
   </div>
