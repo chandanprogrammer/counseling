@@ -32,7 +32,7 @@ const SendMail = () => {
       btn.addEventListener("click", handleClick);
     }
 
-    // Cleanup event listener on component unmount
+    // Cleanup event listener on component 
     return () => {
       if (btn) {
         btn.removeEventListener("click", handleClick);
