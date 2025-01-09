@@ -19,7 +19,7 @@ import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
 import AllStudentsList from "./pages/AllStudentsList";
 import Selection from "./pages/Selection";
-import SendMail from "./pages/sendMail";
+import SendMail from "./pages/SendMail";
 
 function App() {
   return (
