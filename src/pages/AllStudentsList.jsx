@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
-const URL_POST_DATA =
+const URL_GET_DATA =
   "https://script.google.com/macros/s/AKfycbyoDilHTM236kcDwvSOPRHeGXDkxKFGCZ4DH-iEwc6g0QoLI0Lsfkpso27sxPJKImGA/exec";
 
 const AllStudentsList = () => {
@@ -54,7 +54,7 @@ const AllStudentsList = () => {
     const fetchData = async () => {
       setIsFetching(true);
       try {
-        const response = await fetch(URL_POST_DATA);
+        const response = await fetch(URL_GET_DATA);
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }

@@ -24,13 +24,9 @@
     letter-spacing: 2px;
 }
 .btn-home-reg {
-    position: absolute;
-    top: 30%;
-    left: 50%;
   transform: translate(-50%, -50%);
   font-size: 18px;
   color: #fff;
-  background-color: #0da161f5;
   border: none;
   padding: 12px 20px;
   margin-top: 2rem;
@@ -38,12 +34,28 @@
   letter-spacing: 1px;
   border-radius: 5px;
 }
-.btn-home-reg:hover {
+.btn-home-reg a {
+  color: #fff;
+}
+.reg1{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  background-color: #0da161f5;
+}
+.reg1:hover {
   background-color: #057f4a;
   transition: all 0.3s ease;
 }
-.btn-home-reg a {
-  color: #fff;
+.reg2{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  background-color: #097caaf5;
+}
+.reg2:hover {
+  background-color: #065e81f5;
+  transition: all 0.3s ease;
 }
 @media screen and (max-width: 768px) {
   .home-section img {

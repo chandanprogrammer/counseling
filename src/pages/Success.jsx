@@ -11,9 +11,15 @@ const Success = () => {
           contact you soon.
         </p>
 
-        <button class="button is-primary btn-link">
-          <Link to="/show-list">Registered students List Show </Link>
-        </button>
+        <div className="button-section">
+          <button class="button is-primary btn-link">
+            <Link to="/show-list">Registered students List </Link>
+          </button>
+
+          <button class="button btn-link pdf-download">
+            <Link to="/download-conformation">Download Conformation Page </Link>
+          </button>
+        </div>
       </div>
     </>
   );

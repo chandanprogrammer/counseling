@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const URL_POST_DATA =
   "https://script.google.com/macros/s/AKfycbysfwC4h4ztvUUnkTjVdLFOvptGEMAKZyctYsuEk2QcBxsMrmL9_O3jHnnrtI7NJ33z/exec";
 
+const URL_GET_DATA =
+  "https://script.google.com/macros/s/AKfycbyoDilHTM236kcDwvSOPRHeGXDkxKFGCZ4DH-iEwc6g0QoLI0Lsfkpso27sxPJKImGA/exec";
+
 const Registration = () => {
+  const [originalData, setOriginalData] = useState([]);
   const [waiting, setWaiting] = useState(false);
+  const [searchApplicationBox, setSearchApplicationBox] = useState(true);
   const navigate = useNavigate();
+
+  const [applicantName, setApplicantName] = useState("");
+  const [fatherName, setFatherName] = useState("");
+  const [motherName, setMotherName] = useState("");
+  const [email, setEmail] = useState("");
+  const [formNo, setFormNo] = useState("");
+  const [cuetNo, setCuetNo] = useState("");
+  const [cuetMarks, setCuetMarks] = useState("");
+  
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -56,14 +70,12 @@ const Registration = () => {
         data: formDataString,
       };
 
-      const response = await fetch(URL_POST_DATA,
-        {
-          method: "POST",
-          mode: "no-cors",
-          body: JSON.stringify(payload),
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const response = await fetch(URL_POST_DATA, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json" },
+      });
 
       // if (!response.ok) {
       //   throw new Error(`HTTP error! Status: ${response.status}`);
@@ -80,6 +92,57 @@ const Registration = () => {
     }
   };
 
+  const handleApplicationSearch = () => {
+    const applicationNoData = document.getElementById("application-no-data");
+    let check = false;
+
+    if (originalData.length === 0) {
+      alert("Network Error! Refresh Page and Try Again");
+    }
+    originalData.map((item, index) => {
+      console.log(item);
+      
+      if (
+        "" + item.cuetNo === applicationNoData.value ||
+        item.formNo === applicationNoData.value
+      ) {
+        setSearchApplicationBox(false);
+        check = true;
+        setApplicantName(item.name);
+        setFatherName(item.fatherName);
+        setMotherName(item.motherName);
+        setEmail(item.email);
+        setFormNo(item.formNo);
+        setCuetNo(item.cuetNo);
+        setCuetMarks(item.cuetMarks);
+      }
+    });
+    if (!check) {
+      alert("Invalid Application Number");
+      applicationNoData.value = "";
+    }    
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(URL_GET_DATA);
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
+        const result = await response.json();
+
+        setOriginalData(result.data.slice(1));
+      } catch (error) {
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="hero-section">
@@ -91,8 +154,10 @@ const Registration = () => {
       </div>
       <div className=" form-section">
         <form id="form" className="container form" onSubmit={handleFormSubmit}>
-          <div className="field">
-            <label className="label">Applicant Name <span className="required" >*</span></label>
+          <div className="field not-editable">
+            <label className="label">
+              Applicant Name <span className="required">*</span>
+            </label>
             <div className="control">
               <input
                 className="input"
@@ -100,11 +165,14 @@ const Registration = () => {
                 placeholder="Enter Name"
                 name="Name"
                 required
+                value={applicantName}
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Father's Name <span className="required">*</span></label>
+          <div className="field not-editable">
+            <label className="label">
+              Father's Name <span className="required">*</span>
+            </label>
             <div className="control">
               <input
                 className="input"
@@ -112,11 +180,14 @@ const Registration = () => {
                 placeholder="Enter Father's Name"
                 name="Father Name"
                 required
+                value={fatherName}
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Mother's Name <span className="required">*</span></label>
+          <div className="field not-editable">
+            <label className="label">
+              Mother's Name <span className="required">*</span>
+            </label>
             <div className="control">
               <input
                 className="input"
@@ -124,12 +195,15 @@ const Registration = () => {
                 placeholder="Enter Mother's Name"
                 name="Mother Name"
                 required
+                value={motherName}
               />
             </div>
           </div>
 
-          <div className="field">
-            <label className="label">Email ID <span className="required">*</span></label>
+          <div className="field not-editable">
+            <label className="label">
+              Email ID <span className="required">*</span>
+            </label>
             <div className="control">
               <input
                 className="input"
@@ -137,11 +211,14 @@ const Registration = () => {
                 placeholder="example@gmail.com"
                 name="Email"
                 required
+                value={email}
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">Date of Birth <span className="required">*</span></label>
+            <label className="label">
+              Date of Birth <span className="required">*</span>
+            </label>
             <div className="control half-width">
               <input
                 className="input"
@@ -154,18 +231,15 @@ const Registration = () => {
           </div>
 
           <div className="field">
-            <label className="label">Gender <span className="required">*</span></label>
+            <label className="label">
+              Gender <span className="required">*</span>
+            </label>
             <div className="control gender">
               <label className="radio">
-                <input type="radio" name="Gender" value="Male" required />{" "}
-                Male
+                <input type="radio" name="Gender" value="Male" required /> Male
               </label>
               <label className="radio">
-                <input
-                  type="radio"
-                  name="Gender"
-                  value="Female" required 
-                />{" "}
+                <input type="radio" name="Gender" value="Female" required />{" "}
                 Female
               </label>
             </div>
@@ -173,7 +247,7 @@ const Registration = () => {
           <div className="field">
             <label className="label">Category</label>
             <div className="control">
-              <select name="Category" id="category">
+              <select name="Category" id="category" >
                 <option value="General">General</option>
                 <option value="EWS">EWS</option>
                 <option value="OBC">OBC</option>
@@ -184,56 +258,77 @@ const Registration = () => {
             </div>
           </div>
           <div className="field">
-            <label className="label">Phone Number <span className="required">*</span></label>
+            <label className="label">
+              Phone Number <span className="required">*</span>
+            </label>
             <div className="control">
               <input
                 className="input"
                 type="number"
                 placeholder="+91 xxxxxxxxxx"
                 name="Phone Number"
+                min="1000000000"
+                max="9999999999"
                 required
               />
             </div>
           </div>
 
-          <div className="field">
-            <label className="label">Form Number <span className="required">*</span></label>
+          <div className="field not-editable">
+            <label className="label">
+              Form Number <span className="required">*</span>
+            </label>
             <div className="control">
               <input
                 className="input"
                 type="text"
                 placeholder="GGV/2025/xxxx"
                 name="Form Number"
+                maxLength="8"
+                minLength="8"
                 required
+                value={formNo}
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">CUET Application Number <span className="required">*</span></label>
+          <div className="field not-editable">
+            <label className="label">
+              CUET Application Number <span className="required">*</span>
+            </label>
             <div className="control">
               <input
                 className="input"
                 type="text"
                 placeholder="xxxxxxxxxxx"
                 name="CUET Application No"
+                maxLength="8"
+                minLength="8"
                 required
+                value={cuetNo}
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">CUET Marks <span className="required">*</span></label>
+          <div className="field not-editable">
+            <label className="label">
+              CUET Marks <span className="required">*</span>
+            </label>
             <div className="control">
               <input
                 className="input"
                 type="number"
                 placeholder="Enter CUET Marks"
                 name="CUET Marks"
+                max="300"
+                min="0"
                 required
+                value={cuetMarks}
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">10th Marksheet <span className="required">*</span></label>
+            <label className="label">
+              10th Marksheet <span className="required">*</span>
+            </label>
             <div className="control half-width file">
               <input
                 className="input"
@@ -246,7 +341,9 @@ const Registration = () => {
             </div>
           </div>
           <div className="field">
-            <label className="label">12th Marksheet <span className="required">*</span></label>
+            <label className="label">
+              12th Marksheet <span className="required">*</span>
+            </label>
             <div className="control half-width file">
               <input
                 className="input"
@@ -272,6 +369,19 @@ const Registration = () => {
             <img src="../../images/loading.png" alt="Description of image" />
           </div>
           <p>Please wait...</p>
+        </div>
+      )}
+      {searchApplicationBox && (
+        <div className="search-application-section">
+          <div className="search-application">
+            <p>Enter your CUET Application Number</p>
+            <input
+              id="application-no-data"
+              type="text"
+              placeholder="Application Number"
+            />
+            <button onClick={handleApplicationSearch}>Search</button>
+          </div>
         </div>
       )}
     </>

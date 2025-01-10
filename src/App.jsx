@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./css/style.css"
+import "./css/navbar.css"
 import "./css/home.css"
 import "./css/registration.css"
 import "./css/showlist.css"
@@ -20,6 +21,7 @@ import Dashboard from "./pages/Dashboard";
 import AllStudentsList from "./pages/AllStudentsList";
 import Selection from "./pages/Selection";
 import SendMail from "./pages/SendMail";
+import PdfPage from "./pages/PdfPage";
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
         <Route path="/dashboard/all-students-list" element={<AllStudentsList />} />
         <Route path="/dashboard/selection" element={<Selection />} />
         <Route path="/dashboard/send-mail" element={<SendMail />} />
+        <Route path="/download-conformation" element={<PdfPage />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       {/* <Footer /> */}

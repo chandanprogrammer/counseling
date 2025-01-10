@@ -62,6 +62,7 @@ const Login = () => {
 
     passwordValue = encyriptPass;
 
+    const currentDate = new Date();
     for (let i = 1; i < data.length; i++) {
       if (data[i].email === emailValue && data[i].password === passwordValue) {
         //  Save login details in Local storage
@@ -69,7 +70,7 @@ const Login = () => {
           {
             email: emailValue,
             password: passwordValue,
-            // valideDay: "2025-01-08",
+            loginDate: currentDate.toISOString().split("T")[0],
           },
         ];
         localStorage.setItem(
@@ -78,6 +79,7 @@ const Login = () => {
         );
 
         navigate("/dashboard");
+        window.location.reload();
         return;
       }
     }

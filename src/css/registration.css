@@ -94,10 +94,13 @@
   cursor: pointer;
 }
 .is-primary {
-  background-color: #0da161;
+  background-color: #0c965a;
   color: #fff;
   padding: 12px 50px;
 
+}
+.is-primary:hover {
+  background-color: #0d7749;
 }
 .is-danger {
   background-color: #c93b3bed;
@@ -109,6 +112,11 @@
   justify-content: space-around;
   margin-top: 4rem;
   margin-bottom: 2rem;
+}
+.not-editable input{
+  background-color: #acacac;
+  color: #313131;
+  cursor: not-allowed;
 }
 
 /* waiting section loader style */
@@ -150,6 +158,63 @@ body {
   }
 }
 
+/* ---------- search cuet data ----------- */
+.search-application-section {
+  /* background-color: rgba(0, 0, 0, 0.639); */
+  position: fixed;
+  top: 4.5rem;
+  left: 0;
+  width: 100vw;
+  height: 80vh;
+  color: #b2b2b2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* z-index: 10; */
+}
+.search-application{
+  height: 40vh;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #000000eb;
+  border-radius: 5px;
+  padding: 2rem 4rem;
+}
+.search-application input{
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 4px;
+  border: 1px solid #969696;
+  font-size: 14px;
+  color: #000;
+  letter-spacing: 0.6px;
+  margin: 2rem 0;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+.search-application input:focus {
+  outline: none;
+  border: 1px solid #083ccb;
+}
+.search-application button{
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 15px;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  background-color: #0c965a;
+  color: #fff;
+  border: none;
+}
+.search-application button:hover{
+  background-color: #0d7749;
+}
+
+
+
 /* thank you section style */
 .thankyou-section {
   /* background-color: rgb(201, 201, 201); */
@@ -164,6 +229,19 @@ body {
 .thankyou-section p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+}
+.button-section {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+.pdf-download{
+  background-color: #116fc8;
+  margin-top: 2rem;
+}
+.pdf-download:hover{
+  background-color: #095399;
 }
 
 /* Mobile Responsive */
@@ -186,5 +264,8 @@ body {
   .button {
     font-size: 17px;
     font-weight: 500;
+  }
+  .search-application{
+    width: 80%;
   }
 }
