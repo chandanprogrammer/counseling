@@ -9,6 +9,7 @@ header {
   align-items: center;
   padding: 0.3rem 4rem;
   position: relative;
+  font-size: 16px;
 }
 .header .logo img {
   width: 60px;
@@ -26,7 +27,7 @@ header {
 .nav-links {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 8px;
   font-weight: 500;
 }
 .nav-links li {
@@ -63,21 +64,28 @@ header {
   width: 30px;
   height: 30px;
 }
+.hamburge_b {
+  width: 30px;
+  height: 30px;
+}
+.close_icon {
+  width: 20px;
+  height: 20px;
+}
 .hamburger {
   display: none;
   cursor: pointer;
 }
-.user-icon-dashboard{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /* background-color: red; */
+.user-icon-dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.user-icon img{
-    width: 35px;
-    height: 35px;
-    margin-right: 1rem;
+.user-icon img {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
 }
 
 /* -------- Mobile Responsive -------- */
@@ -103,10 +111,11 @@ header {
     left: 0;
     background-color: #fff;
     border: 1px solid #ddd;
-    width: 270px;
-    padding: 10px;
+    width: 300px;
+    padding-top: 4rem;
+    padding-left: 1.5rem;
     height: 98vh;
-    margin-top: 4.5rem;
+    margin-top: 4.4rem;
     z-index: 99;
   }
 
@@ -120,5 +129,12 @@ header {
 
   .nav-links li:last-child {
     margin-bottom: 0;
+  }
+  .user-icon-dashboard {
+    justify-content: left;
+    margin-left: 2rem;
+  }
+  .user-icon img {
+    margin-right: 0;
   }
 }

@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isUserOpen, setIsUserOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [crossIcon, setCrossIcon] = useState("hamburge_b");
 
   // Check login status on component mount
   useEffect(() => {
@@ -15,6 +15,13 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setCrossIcon(crossIcon === "hamburge_b" ? "close_icon" : "hamburge_b");
+  };
+  const toggleMenuClose = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(!isMenuOpen);
+    }
+    setCrossIcon(crossIcon === "hamburge_b" ? "close_icon" : "hamburge_b");
   };
 
   const handleLogout = () => {
@@ -24,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <header onClick={toggleMenuClose}>
       <div className="container header">
         <div className="logo">
           <a href="/">
@@ -35,9 +42,9 @@ const Navbar = () => {
         <nav>
           <div className="hamburger" onClick={toggleMenu}>
             <img
-              src="../../images/hamburge_b.png"
+              src={`../../images/${crossIcon}.png`}
               alt="Menu"
-              className="hamburge-icon"
+              className={`hamburger ${crossIcon}`}
             />
           </div>
           <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
@@ -86,6 +93,18 @@ const Navbar = () => {
                     alt="Selected List"
                   />
                   <p>Selected List</p>
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/search-conformation-page">
+                <div className="flex-center">
+                  <img
+                    className="icon"
+                    src="../../images/download.png"
+                    alt="Selected List"
+                  />
+                  <p>Download</p>
                 </div>
               </Link>
             </li>
