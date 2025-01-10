@@ -6,7 +6,7 @@ const Sidebar = () => {
   const navigator = useNavigate();
   return (
     <div className="dashboard-sidebar">
-    <div className="dashboard-sidebar-heading" onClick={()=>{
+    <div className="dashboard-sidebar-heading " onClick={()=>{
       navigator('/dashboard');
     }}>
       <img
@@ -14,7 +14,7 @@ const Sidebar = () => {
         src="../../images/home_1.png"
         alt=""
       />
-      Dashboard
+      <span className='active-link'>Dashboard</span>
     </div>
     <ul>
       <li>

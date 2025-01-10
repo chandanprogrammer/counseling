@@ -8,9 +8,11 @@ import "./css/dashboard.css"
 import "./css/error.css"
 import "./css/login.css"
 import "./css/sendmail.css"
+import "./css/loader.css"
+import "./css/chartstyle.css"
 import Home from "./pages/Home";
 import Registration from "./pages/Registration";
-import ShowList from "./pages/ShowList";
+import RegisteredList from "./pages/RegisteredList";
 import SelectedList from "./pages/SelectedList";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
@@ -31,7 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/show-list" element={<ShowList />} />
+        <Route path="/registered-list" element={<RegisteredList />} />
         <Route path="/selected-list" element={<SelectedList />} />
         <Route path="/login" element={<Login />} />
         <Route path="/success" element={<Success />} />

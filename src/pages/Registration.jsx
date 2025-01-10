@@ -378,7 +378,7 @@ const Registration = () => {
             <input
               id="application-no-data"
               type="text"
-              placeholder="Application Number"
+              placeholder="CUET Application Number"
             />
             <button onClick={handleApplicationSearch}>Search</button>
           </div>

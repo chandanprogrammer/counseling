@@ -12,7 +12,7 @@ const Home = () => {
         <Link to="/registration">Click for Registration</Link>
       </button>
       <button className="btn-home-reg reg2">
-        <Link to="/download-conformation">Download Conformation Page</Link>
+        <Link to="/download-conformation">Download Conformation</Link>
       </button>
     </div>
   );

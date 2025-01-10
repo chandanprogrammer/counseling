@@ -1,3 +1,7 @@
+.active-link {
+  color: #041d9b;
+  font-weight: bold;
+}
 .dashboard {
   display: flex;
   gap: 10px;

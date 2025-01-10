@@ -1,0 +1,43 @@
+.loader-section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(13, 13, 13, 0.448);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.loader-section img{
+    width: 100px;
+    height: 100px;
+    animation: rotate-loader 3s infinite linear;
+}
+@keyframes rotate-loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+.loader-section p{
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    line-height: 2.5rem;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 1px 1px 2px #000000a1;
+}

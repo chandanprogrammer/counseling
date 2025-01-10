@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
+import Loader from "../components/Loader";
 const URL_GET_DATA =
   "https://script.google.com/macros/s/AKfycbyoDilHTM236kcDwvSOPRHeGXDkxKFGCZ4DH-iEwc6g0QoLI0Lsfkpso27sxPJKImGA/exec";
 
@@ -30,24 +31,33 @@ const AllStudentsList = () => {
         arr.push(filtered[i]);
       }
       setTempFilteredData(arr);
-      console.log("tempFilteredData 1 ->>>", arr);
     }
   };
 
   const marksFilteration = (e) => {
-    const marks = e.target.value;
-    const filtered = filteredData.filter((item) => item.cuetMarks >= marks);
+    let marks = e.target.value;
+    let filtered = tempFilteredData.filter((item) => item.cuetMarks >= marks);
     setFilteredData(filtered);
   };
 
   const listSortedByMarks = (e) => {
-    console.log("sorted by marks");
+    let sorted = [];
+    for (let i = 300; i >= 0; i--) {
+      originalData.map((item) => {
+        if (item.cuetMarks == i) {
+          sorted.push(item);
+        }
+      });
+    }
+    setFilteredData(sorted);
   };
   const sortedByApplication = (e) => {
-    // const applicationNo = e.target.value;
-    // const filtered = filteredData.filter((item) => item.formNo === applicationNo || item.cuetNo === applicationNo);
-    // setFilteredData(filtered);
-    // console.log(e.target.value);
+    let applicationNo = e.target.value;
+
+    let filtered = originalData.filter(
+      (item) => "" + item.cuetNo === applicationNo
+    );
+    setFilteredData(filtered);
   };
 
   useEffect(() => {
@@ -78,6 +88,7 @@ const AllStudentsList = () => {
   return (
     <div className="dashboard container">
       <Sidebar />
+      {isFetching ? <Loader /> : ""}
       <div className="dashboard-content">
         <div className="fixed-filter-section">
           <div className="filter-section">
@@ -88,8 +99,13 @@ const AllStudentsList = () => {
             />
             <p>Filter</p>
           </div>
-          <div className="serach-application" onChange={sortedByApplication}>
-            <input type="text" placeholder="Enter Application Number" />
+          <div className="serach-application">
+            <input
+              id="application-number"
+              type="text"
+              placeholder="Enter Application Number"
+              onChange={sortedByApplication}
+            />
           </div>
           <div className="or-text">
             <p>OR</p>

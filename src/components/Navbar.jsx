@@ -73,14 +73,14 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/show-list">
+              <Link to="/registered-list">
                 <div className="flex-center">
                   <img
                     className="icon"
                     src="../../images/list.png"
                     alt="List"
                   />
-                  <p>Show List</p>
+                  <p>Registered List</p>
                 </div>
               </Link>
             </li>

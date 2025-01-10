@@ -1,0 +1,31 @@
+.chart-gender {
+  background-color: #fff;
+  width: 400px;
+  height: 400px;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #6d6d6dd4;
+}
+.chart-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    gap: 2rem;
+}
+.count-student p{
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #6d6d6dd4;
+    margin-bottom: 2rem;
+    font-size: 20px;
+    color: rgb(67, 67, 67)
+}
+.count-student span{
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 1rem;
+    color: rgb(12, 44, 204)
+}

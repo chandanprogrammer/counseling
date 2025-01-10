@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Loader from "../components/Loader";
 const URL_POST_DATA = "https://script.google.com/macros/s/AKfycbyoDilHTM236kcDwvSOPRHeGXDkxKFGCZ4DH-iEwc6g0QoLI0Lsfkpso27sxPJKImGA/exec";
 
-const ShowList = () => {
+const RegisteredList = () => {
   const [data, setData] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
 
@@ -32,6 +33,7 @@ const ShowList = () => {
   return (
     <>
       <div className="hero-section">
+        {isFetching ? <Loader /> : ""}
         <div className="container">
           <p>
             List of <span>MCA</span> Registered Student Counseling Form
@@ -74,4 +76,4 @@ const ShowList = () => {
   );
 };
 
-export default ShowList;
+export default RegisteredList;
