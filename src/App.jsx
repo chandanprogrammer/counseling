@@ -25,6 +25,7 @@ import Selection from "./pages/Selection";
 import SendMail from "./pages/SendMail";
 import PdfPage from "./pages/PdfPage";
 import SearchConformation from "./pages/SearchConformation";
+import RegisteredStudent from "./pages/RegisteredStudent";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/success" element={<Success />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/all-students-list" element={<AllStudentsList />} />
+        <Route path="/dashboard/registered-student" element={<RegisteredStudent />} />
         <Route path="/dashboard/selection" element={<Selection />} />
         <Route path="/dashboard/send-mail" element={<SendMail />} />
         <Route path="/download-conformation" element={<PdfPage />} />

@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 const URL_POST_DATA =
   "https://script.google.com/macros/s/AKfycbysfwC4h4ztvUUnkTjVdLFOvptGEMAKZyctYsuEk2QcBxsMrmL9_O3jHnnrtI7NJ33z/exec";
 
-const URL_GET_DATA =
-  "https://script.google.com/macros/s/AKfycbyoDilHTM236kcDwvSOPRHeGXDkxKFGCZ4DH-iEwc6g0QoLI0Lsfkpso27sxPJKImGA/exec";
+  const CUET_PROVIDED_DATA_URL =
+  "https://script.google.com/macros/s/AKfycbyDFWeS5kBMDnzY0Rwz6-wFfN_-8uhHCoataOKyapt1RCB3CG9qhK9UUz1VL-2LQwFe/exec";
 
 const Registration = () => {
   const [originalData, setOriginalData] = useState([]);
@@ -70,7 +70,7 @@ const Registration = () => {
         data: formDataString,
       };
 
-      const response = await fetch(URL_POST_DATA, {
+      const response = await fetch(CUET_PROVIDED_DATA_URL, {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify(payload),

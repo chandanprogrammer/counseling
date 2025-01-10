@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import Loader from "../components/Loader";
-const CUET_PROVIDED_DATA_URL =
-  "https://script.google.com/macros/s/AKfycbyDFWeS5kBMDnzY0Rwz6-wFfN_-8uhHCoataOKyapt1RCB3CG9qhK9UUz1VL-2LQwFe/exec";
-const AllStudentsList = () => {
+const REGISTRED_DATA_URL =
+  "https://script.google.com/macros/s/AKfycbyoDilHTM236kcDwvSOPRHeGXDkxKFGCZ4DH-iEwc6g0QoLI0Lsfkpso27sxPJKImGA/exec";const RegisteredStudent = () => {
   const [originalData, setOriginalData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
@@ -66,7 +65,7 @@ const AllStudentsList = () => {
     const fetchData = async () => {
       setIsFetching(true);
       try {
-        const response = await fetch(CUET_PROVIDED_DATA_URL);
+        const response = await fetch(REGISTRED_DATA_URL);
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }
@@ -166,6 +165,9 @@ const AllStudentsList = () => {
                 <th>Form Number</th>
                 <th className="cuet-application-no">CUET Application No</th>
                 <th>CUET Marks</th>
+                <th>10th Marksheet</th>
+                <th>12th Marksheet</th>
+                <th>Submit Date</th>
               </tr>
             </thead>
             <tbody id="table-body">
@@ -183,6 +185,48 @@ const AllStudentsList = () => {
                   <td>{row.formNo}</td>
                   <td>{row.cuetNo}</td>
                   <td>{row.cuetMarks}</td>
+                  <td>
+                    <a
+                      className="view-icon"
+                      href={
+                        "https://drive.google.com/file/d/" +
+                        row.marksheet10th
+                          .split("uc?id=")[1]
+                          ?.split("&export")[0] +
+                        "/preview"
+                      }
+                      target="_blank"
+                    >
+                      <img
+                        className="eye-icon"
+                        src="../../images/eye.png"
+                        alt="View 10th Marksheet"
+                      />
+                      <p>View</p>
+                    </a>
+                  </td>
+                  <td>
+                    <a
+                      className="view-icon"
+                      href={
+                        "https://drive.google.com/file/d/" +
+                        row.marksheet12th
+                          .split("uc?id=")[1]
+                          ?.split("&export")[0] +
+                        "/preview"
+                      }
+                      target="_blank"
+                    >
+                      <img
+                        className="eye-icon"
+                        src="../../images/eye.png"
+                        alt="View 12th Marksheet"
+                      />
+                      <p>View</p>
+                    </a>
+                  </td>
+
+                  <td>{row.timestamp.split("T")[0]}</td>
                 </tr>
               ))}
             </tbody>
@@ -200,4 +244,4 @@ const AllStudentsList = () => {
   );
 };
 
-export default AllStudentsList;
+export default RegisteredStudent;

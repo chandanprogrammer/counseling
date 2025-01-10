@@ -39,7 +39,7 @@ const Sidebar = () => {
           src="../../images/selected_list.png"
           alt=""
         />
-        <Link to="/dashboard/students-selection">Registrated Students</Link>
+        <Link to="/dashboard/registered-student">Registrated Students</Link>
       </li>
       <li>
         <img
