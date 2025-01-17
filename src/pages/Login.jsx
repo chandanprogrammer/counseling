@@ -91,7 +91,7 @@ const Login = () => {
   return (
     <div className="container">
       <div>
-        <h2 className="login-heading">Login</h2>
+        <h2 className="login-heading">Admin Login</h2>
       </div>
       <div className="login-section flex-center">
         <form className="login-form" onSubmit={passwordCheck}>

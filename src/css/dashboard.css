@@ -6,6 +6,7 @@
   display: flex;
   gap: 10px;
   margin-top: 1.5rem;
+  margin-bottom: 5rem;
 }
 .dashboard-sidebar {
   /* background-color: green; */
@@ -31,7 +32,6 @@
 }
 .dashboard-content {
   width: 80%;
-  /* background-color: blue; */
 }
 .data-show-scroll {
   width: 100%;

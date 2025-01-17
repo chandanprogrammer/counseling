@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 const URL_POST_DATA =
   "https://script.google.com/macros/s/AKfycbysfwC4h4ztvUUnkTjVdLFOvptGEMAKZyctYsuEk2QcBxsMrmL9_O3jHnnrtI7NJ33z/exec";
 
@@ -70,7 +71,7 @@ const Registration = () => {
         data: formDataString,
       };
 
-      const response = await fetch(CUET_PROVIDED_DATA_URL, {
+      const response = await fetch(URL_POST_DATA, {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify(payload),
@@ -125,7 +126,7 @@ const Registration = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(URL_GET_DATA);
+        const response = await fetch(CUET_PROVIDED_DATA_URL);
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }

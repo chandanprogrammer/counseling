@@ -138,3 +138,11 @@ header {
     margin-right: 0;
   }
 }
+
+/* ---------- Big screen Responsive ---------- */
+@media screen and (min-width: 1800px) {
+  .container {
+    padding-left: 15rem;
+    padding-right: 15rem;
+  }
+}
